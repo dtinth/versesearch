@@ -89,7 +89,7 @@ export function Chapter(props: { book: number; chapter: number }) {
       <h1 className={classes.chapterTitle}>
         {bookNames[book]} {chapter}
       </h1>
-      <PageTitle title={`📖 ${bookNames[book]} ${chapter}`} />
+      <PageTitle title={`${bookNames[book]} ${chapter}`} />
       <div className={classes.verses}>
         {data
           ? Array.from({ length: verses }, (_, i) => {
