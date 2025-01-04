@@ -58,8 +58,11 @@ function getPreviousChapter(
 export const Commander = () => {
   const [open, setOpen] = useState(false);
   const [search, setSearch] = useState("");
-  const found = useMemo(() => resolveVerse(search), [search]);
   const currentChapter = useStore($route);
+  const found = useMemo(
+    () => resolveVerse(search, currentChapter),
+    [search, currentChapter],
+  );
 
   const clear = () => {
     setSearch("");

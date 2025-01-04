@@ -19,8 +19,21 @@ for (const [bookId, abbreviations] of Object.entries(bookAbbreviations)) {
 
 export function resolveVerse(
   query: string,
+  currentChapter?: [number, number],
 ): [number, number, number] | undefined {
   if (!query) return undefined;
+
+  if (query.match(/^\d+$/) && currentChapter) {
+    const target = [currentChapter[0], currentChapter[1], parseInt(query)] as [
+      number,
+      number,
+      number,
+    ];
+    const maxVerses = verseCount[target[0]]?.[target[1]];
+    if (maxVerses && target[2] >= 1 && target[2] <= maxVerses) {
+      return target;
+    }
+  }
 
   // Parse query into components
   const match = query

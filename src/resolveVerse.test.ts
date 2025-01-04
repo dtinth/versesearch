@@ -22,6 +22,11 @@ test("returns undefined if ambiguous", async () => {
   expect(resolveVerse("")).toEqual(undefined);
 });
 
+test("returns the verse in the same chapter if context is provided", async () => {
+  expect(resolveVerse("13", [46, 13])).toEqual([46, 13, 13]);
+  expect(resolveVerse("14", [46, 13])).toEqual(undefined);
+});
+
 test("resolves verse from speech", async () => {
   expect(resolveVerseFromSpeech("1st Corinthians chapter 13")).toEqual([
     46, 13,
