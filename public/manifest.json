@@ -1,0 +1,9 @@
+{
+  "name": "verse search",
+  "short_name": "verse search",
+  "description": "Bible reading tool designed to be ergonomic and distraction-free",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000"
+}
