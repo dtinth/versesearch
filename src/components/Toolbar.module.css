@@ -1,0 +1,17 @@
+.toolbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: row-reverse;
+  background: var(--bg);
+  z-index: 2;
+}
+.toolbar button {
+  background: none;
+  border: none;
+  color: var(--fg);
+  font-size: 1.5em;
+  padding: 0.5em;
+  cursor: pointer;
+}

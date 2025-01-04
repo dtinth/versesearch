@@ -1,0 +1,105 @@
+[cmdk-overlay] {
+  background-color: #0008;
+  position: fixed;
+  inset: 0;
+}
+
+[cmdk-root] {
+  position: fixed;
+  top: -3px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  max-width: 640px;
+  width: 100%;
+  padding: 8px;
+  background: var(--bg);
+  border-radius: 0 0 12px 12px;
+  overflow: hidden;
+  border: 2px solid #8b8685;
+  box-shadow: 0 0 32px #8b868555;
+  outline: none;
+}
+
+[cmdk-input] {
+  border: none;
+  width: 100%;
+  font-size: 17px;
+  padding: 8px 8px 16px 8px;
+  outline: none;
+  border-bottom: 1px solid #656463;
+  margin-bottom: 16px;
+  border-radius: 0;
+  background: transparent;
+  font-family: inherit;
+  color: var(--input);
+}
+
+[cmdk-item] {
+  content-visibility: auto;
+  cursor: pointer;
+  height: 32px;
+  border-radius: 8px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 16px;
+  user-select: none;
+  will-change: background, color;
+  transition: all 150ms ease;
+  transition-property: none;
+
+  &[data-selected="true"] {
+    background: var(--fg);
+    color: var(--bg);
+  }
+
+  &[data-disabled="true"] {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  & + [cmdk-item] {
+    margin-top: 4px;
+  }
+}
+
+[cmdk-list] {
+  height: min(330px, calc(var(--cmdk-list-height)));
+  max-height: 480px;
+  overflow: auto;
+  overscroll-behavior: contain;
+  transition: 100ms ease;
+  transition-property: height;
+}
+
+[cmdk-separator] {
+  height: 1px;
+  width: 100%;
+  background: #656463;
+  margin: 4px 0;
+}
+
+*:not([hidden]) + [cmdk-group] {
+  margin-top: 8px;
+}
+
+[cmdk-group-heading] {
+  user-select: none;
+  font-size: 12px;
+  color: #8b8685;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+[cmdk-empty] {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  white-space: pre-wrap;
+  color: #8b8685;
+}

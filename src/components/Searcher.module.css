@@ -1,0 +1,61 @@
+.chapterTitle {
+  font-size: 1em;
+  margin: 0 0 var(--line-height);
+}
+
+.verses {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--line-height) * 0.5);
+}
+
+.verse {
+  display: flex;
+  gap: calc(var(--line-height) * 0.5);
+}
+
+.targetVerse {
+  background: var(--fg);
+  color: var(--bg);
+  margin: calc(var(--line-height) * -0.25) 0;
+  padding: calc(var(--line-height) * 0.25) 0;
+}
+
+.verseNumber {
+  font-weight: bold;
+  width: 2.5ch;
+  text-align: right;
+  flex: none;
+}
+
+.verseText {
+  flex: 1;
+  max-width: 96ch;
+  display: flex;
+  gap: calc(var(--line-height) * 0.25);
+  flex-direction: column;
+}
+
+.altText {
+  font-family: Sarabun, sans-serif;
+  letter-spacing: 0.04ch;
+  opacity: 0.64;
+  font-size: 0.8em;
+  line-height: 1.41;
+  padding-left: 1ch;
+}
+
+@media (min-width: 800px) {
+  .verseText {
+    flex-direction: row;
+    align-items: baseline;
+  }
+  .mainText {
+    flex: 2;
+  }
+  .altText {
+    flex: 1;
+    padding-left: 0;
+    line-height: unset;
+  }
+}
