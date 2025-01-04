@@ -75,7 +75,7 @@ export function Chapter(props: { book: number; chapter: number }) {
     const found = document.querySelector<HTMLDivElement>(
       `[data-verse="${targetVerse}"]`,
     );
-    if (found) {
+    if (found && data.book === book && data.chapter === chapter) {
       found.scrollIntoView({ behavior: "smooth", block: "center" });
       found.classList.add(classes.targetVerse);
       setTimeout(() => {
