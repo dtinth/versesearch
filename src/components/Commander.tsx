@@ -179,6 +179,17 @@ export const Commander = () => {
               Change color mode to {oppositeColorMode}
             </Command.Item>
           </Command.Group>
+
+          <Command.Group heading="Open in…">
+            <Command.Item
+              onSelect={() => {
+                const url = `https://www.biblegateway.com/passage/?search=${usfmIdentifiers[currentChapter[0]]}+${currentChapter[1]}`;
+                window.open(url, "_blank");
+              }}
+            >
+              Bible Gateway
+            </Command.Item>
+          </Command.Group>
         </Command.List>
       </Command.Dialog>
     </>
