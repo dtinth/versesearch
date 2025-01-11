@@ -5,6 +5,7 @@ import { SnackbarProvider } from "notistack";
 import { useEffect, useState } from "react";
 import { bookNames } from "../bookNames";
 import { $route, $targetVerse } from "../routing";
+import { clearTarget, scrollInto } from "../scrollInto";
 import { $colorMode } from "../settings";
 import { verseCount } from "../verseCount";
 import { Commander } from "./Commander";
@@ -76,9 +77,10 @@ export function Chapter(props: { book: number; chapter: number }) {
       `[data-verse="${targetVerse}"]`,
     );
     if (found && data.book === book && data.chapter === chapter) {
-      found.scrollIntoView({ behavior: "smooth", block: "center" });
+      scrollInto(found);
       found.classList.add(classes.targetVerse);
       setTimeout(() => {
+        clearTarget(found);
         found.classList.remove(classes.targetVerse);
       }, 1000);
       $targetVerse.set(undefined);

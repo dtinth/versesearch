@@ -206,12 +206,16 @@ const SpeechConnector = (props: {
   const listen = () => {
     let lastText = "";
     let recognized = false;
+    let hasVerse = false;
     toggleVoiceSearch(
       (text) => {
         const found = resolveVerseFromSpeech(text);
         lastText = text;
         if (found) {
           goTo(found);
+          if (found.length === 3) {
+            hasVerse = true;
+          }
           recognized = true;
         }
       },
@@ -221,6 +225,10 @@ const SpeechConnector = (props: {
             variant: "error",
           });
           lastText = "";
+        }
+        if (recognized && !hasVerse) {
+          const route = $route.get();
+          goTo([route[0], route[1], 1]);
         }
       },
     );
