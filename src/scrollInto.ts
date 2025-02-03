@@ -32,7 +32,7 @@ function scrollToTarget() {
     currentTarget = undefined;
     return;
   }
-  const centerY = window.screenY + window.innerHeight / 2;
+  const centerY = window.innerHeight / 2;
   const targetRect = currentTarget.getBoundingClientRect();
   const targetY = targetRect.y + targetRect.height / 2;
   const effectY = (targetY - centerY) / 5;
