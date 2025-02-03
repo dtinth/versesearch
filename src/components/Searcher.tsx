@@ -87,9 +87,10 @@ export function Chapter(props: { book: number; chapter: number }) {
     }
   }, [book, chapter, data, targetVerse]);
   return (
-    <div style={{ paddingBottom: "50vh" }}>
+    <div className={classes.chapter}>
       <h1 className={classes.chapterTitle}>
         {bookNames[book]} {chapter}
+        <span style={{ fontWeight: "normal" }}>:1–{verses}</span>
       </h1>
       <PageTitle title={`${bookNames[book]} ${chapter}`} />
       <div className={classes.verses}>
