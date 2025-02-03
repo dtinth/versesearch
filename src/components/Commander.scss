@@ -1,11 +1,13 @@
 [cmdk-overlay] {
   background-color: #0008;
   position: fixed;
+  z-index: 3;
   inset: 0;
 }
 
 [cmdk-root] {
   position: fixed;
+  z-index: 4;
   top: -3px;
   left: 50%;
   transform: translate(-50%, 0);
