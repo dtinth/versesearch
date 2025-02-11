@@ -19,18 +19,18 @@
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   gap: 8px;
-  margin-bottom: 24px;
+  margin-bottom: 12px;
 }
 
 .separator {
   height: 2px;
   background: var(--fg);
   opacity: 0.1;
-  margin: 24px 0;
+  margin: 4px 0;
 }
 
 .button {
-  padding: 8px;
+  padding: 4px 8px;
   background: none;
   border: 1px solid var(--fg);
   color: var(--fg);
