@@ -1,0 +1,68 @@
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--bg);
+  z-index: 10;
+  padding: 16px;
+  overflow: auto;
+  display: none;
+}
+
+.popup[data-open="true"] {
+  display: block;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.separator {
+  height: 2px;
+  background: var(--fg);
+  opacity: 0.1;
+  margin: 24px 0;
+}
+
+.button {
+  padding: 8px;
+  background: none;
+  border: 1px solid var(--fg);
+  color: var(--fg);
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.button[data-disabled="true"] {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.button[data-selected="true"] {
+  background: var(--fg);
+  color: var(--bg);
+}
+
+.heading {
+  margin: 0 0 16px;
+  font-size: 1em;
+  font-weight: normal;
+  opacity: 0.7;
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .button[data-disabled="true"] {
+    display: none;
+  }
+}

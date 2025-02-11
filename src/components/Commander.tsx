@@ -12,10 +12,12 @@ import "./Commander.scss";
 import { loadBibleXml, type BibleType } from "./loadBibleXml";
 
 import { Icon } from "@iconify-icon/react";
+import bookIcon from "@iconify-icons/codicon/book";
 import menuIcon from "@iconify-icons/codicon/menu";
 import micIcon from "@iconify-icons/codicon/mic";
 import micFilledIcon from "@iconify-icons/codicon/mic-filled";
 import { $listening, toggleVoiceSearch } from "../speech";
+import { ChapterSelector } from "./ChapterSelector";
 import { Toolbar } from "./Toolbar";
 
 function goTo(found: [number, number, number] | [number, number]) {
@@ -57,6 +59,7 @@ function getPreviousChapter(
 
 export const Commander = () => {
   const [open, setOpen] = useState(false);
+  const [chapterSelectorOpen, setChapterSelectorOpen] = useState(false);
   const [search, setSearch] = useState("");
   const currentChapter = useStore($route);
   const found = useMemo(
@@ -118,6 +121,9 @@ export const Commander = () => {
         <button onClick={() => setOpen(true)}>
           <Icon icon={menuIcon} />
         </button>
+        <button onClick={() => setChapterSelectorOpen(true)}>
+          <Icon icon={bookIcon} />
+        </button>
         <SpeechConnector>
           {({ listen, listening }) => (
             <button onClick={() => listen()}>
@@ -127,6 +133,10 @@ export const Commander = () => {
           )}
         </SpeechConnector>
       </Toolbar>
+      <ChapterSelector
+        open={chapterSelectorOpen}
+        onClose={() => setChapterSelectorOpen(false)}
+      />
       <Command.Dialog
         open={open}
         onOpenChange={setOpen}
