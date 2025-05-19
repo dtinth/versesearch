@@ -199,6 +199,14 @@ export const Commander = () => {
             >
               Bible Gateway
             </Command.Item>
+            <Command.Item
+              onSelect={() => {
+                const url = `https://live.bible.is/bible/ENGNIV/${usfmIdentifiers[currentChapter[0]]}/${currentChapter[1]}?audio_type=audio_drama`;
+                window.open(url, "_blank");
+              }}
+            >
+              Listen on Bible.is
+            </Command.Item>
           </Command.Group>
         </Command.List>
       </Command.Dialog>
