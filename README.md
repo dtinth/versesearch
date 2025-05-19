@@ -1,48 +1,65 @@
-# Astro Starter Kit: Basics
+# VerseSearch
+
+A web application for searching, navigating, and viewing Bible verses. Built with Astro and React.
+
+## Features
+
+- **Easy Navigation**: Jump to any verse using standard Bible references (e.g., "John 3:16")
+- **Multiple Translations**: Load and compare two different Bible XML files
+- **Voice Commands**: Navigate by speaking verse references (e.g., "John chapter 3 verse 16")
+- **Dark/Light Mode**: Toggle between color themes
+- **Chapter Selection**: Easily browse books and chapters with a visual selector
+- **Keyboard Shortcuts**: Quick access via ⌘K (command menu) and ⌘⇧K (voice search)
+
+## Getting Started
 
 ```sh
-npm create astro@latest -- --template basics
+# Install dependencies
+npm install
+
+# Start development server (default port: 31102)
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## Usage
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+1. **Load Bible Data**: Use the command menu (⌘K) and select "Load XML file" to import a Bible XML file
+2. **Navigate**: Type verse references in the command menu or use the book/chapter selector
+3. **Voice Search**: Use the microphone button or press ⌘⇧K to navigate by voice
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+## Bible XML Format
 
-## 🚀 Project Structure
+The application expects XML files in the following format:
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+```xml
+<book number="43">
+  <chapter number="3">
+    <verse number="16">For God so loved the world...</verse>
+  </chapter>
+</book>
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Development
 
-## 🧞 Commands
+The project is built with:
+- **Astro**: Framework
+- **React**: Component library
+- **nanostores**: State management
+- **idb-keyval**: IndexedDB storage
+- **cmdk**: Command menu
 
-All commands are run from the root of the project, from a terminal:
+Run tests with Vitest:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+```sh
+npx vitest
+```
 
-## 👀 Want to learn more?
+## License
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+MIT
